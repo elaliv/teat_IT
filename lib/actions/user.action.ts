@@ -85,7 +85,6 @@ export async function signInUser(params: SignInUserParams) {
     // Verify the password
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) {
-      console.log("Parola gresita cica :(");
       return { badCredentials: true };
     }
 

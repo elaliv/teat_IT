@@ -11,44 +11,7 @@ const SignInForm = () => {
   const [password, setPassword] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
-  // const [success, setSuccess] = useState<boolean>(false);
   const router = useRouter();
-
-  // Sign up user
-  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   setIsLoading(true);
-
-  //   try {
-  //     const { invalidCredentials } = await signUpUser({
-  //       fullName: "Elena Livadaru",
-  //       phoneNumber: "+40729026741",
-  //       collegeGroup: "313CC",
-  //       email,
-  //       password,
-  //     });
-
-  //     if (invalidCredentials) {
-  //       setSuccess(false);
-  //       setError("User with the same email or phone number already exists");
-  //       setTimeout(() => {
-  //         setError("");
-  //       }, 2000);
-  //     } else {
-  //       setError("");
-  //       setSuccess(true);
-  //       setTimeout(() => {
-  //         router.push("/sign-in");
-  //       }, 2000);
-  //     }
-  //   } catch {
-  //     setError("Error during registration");
-  //   } finally {
-  //     const form = e.target as HTMLFormElement;
-  //     form.reset();
-  //     setIsLoading(false);
-  //   }
-  // };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -100,24 +63,6 @@ const SignInForm = () => {
           <span>{error}</span>
         </div>
       )}
-      {/* {success && (
-        <div role="alert" className="alert alert-success">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 shrink-0 stroke-current"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
-          <span>User created successfully! Redirecting...</span>
-        </div>
-      )} */}
       <Form
         action="/"
         className="w-[100%] flex flex-col items-center gap-20"

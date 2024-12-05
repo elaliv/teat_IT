@@ -67,41 +67,6 @@ const SignUpForm = () => {
     }
   };
 
-  //   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  //     e.preventDefault();
-  //     setIsLoading(true);
-
-  //     try {
-  //       const { invalidCredentials } = await signUpUser({
-  //         fullName,
-  //         phoneNumber: phone,
-  //         email,
-  //         password,
-  //         collegeGroup: "313CC",
-  //       });
-
-  //       if (invalidCredentials) {
-  //         setSuccess(false);
-  //         setError("User with the same email or phone number already exists");
-  //         setTimeout(() => {
-  //           setError("");
-  //         }, 2000);
-  //       } else {
-  //         setError("");
-  //         setSuccess(true);
-  //         setTimeout(() => {
-  //           router.push("/sign-in");
-  //         }, 2000);
-  //       }
-  //     } catch {
-  //       setError("Error during registration");
-  //     } finally {
-  //       const form = e.target as HTMLFormElement;
-  //       form.reset();
-  //       setIsLoading(false);
-  //     }
-  //   };
-
   return (
     <>
       {error && (
