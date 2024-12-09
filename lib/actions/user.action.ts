@@ -5,7 +5,7 @@ import { connectToDatabase } from "../mongodb";
 import { SignInUserParams, SignUpUserParams } from "./shared.types";
 import User from "@/database/user.model";
 import bcrypt from "bcryptjs";
-import { encrypt } from "../utils";
+import { encrypt, getUserEmailFromToken } from "../utils";
 
 export async function signUpUser(params: SignUpUserParams) {
   try {
@@ -63,6 +63,28 @@ export async function signInUser(params: SignInUserParams) {
     cookieStore.set("session", session, { expires, httpOnly: true });
   
     return { badCredentials: false };
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
+
+export async function getUserDetailsByEmail() {
+  try {
+    connectToDatabase();
+
+    const email = await getUserEmailFromToken();
+    if (!email) {
+      throw new Error("Invalid token");
+    }
+
+    // Find the user by email
+    const user = await User.findOne({ email });
+    if (!user) {
+      throw new Error("User not found");
+    }
+
+    return {fullName: user.fullName, phoneNumber: user.phoneNumber, email: user.email, collegeGroup: user.collegeGroup};
   } catch (error) {
     console.log(error);
     throw error;
