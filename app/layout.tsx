@@ -31,7 +31,7 @@ export default function RootLayout({
       >
         <Navbar />
         <main>{children}</main>
-        <div className="bg-food bg-cover bg-center fixed bottom-0 w-[100vw] h-[100vh] z-[-1]" />
+        <div className="bg-food bg-cover bg-center fixed bottom-0 w-[100vw] h-[100vh] bg-white" />
       </body>
     </html>
   );

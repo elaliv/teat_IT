@@ -7,7 +7,7 @@ interface Props {
 
 const Card = ({ children }: Props) => {
   return (
-    <div className="px-[5%] py-[3%] rounded-3xl bg-primary-dark-blue text-white">
+    <div className="relative z-10 px-[5%] py-[3%] rounded-3xl bg-primary-dark-blue text-white">
       {children}
     </div>
   );
