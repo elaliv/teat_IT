@@ -1,5 +1,5 @@
+import { isSessionValid } from "@/lib/utils";
 import { redirect } from "next/navigation";
-import { isSessionValid } from "@/lib/actions/user.action";
 
 const page = async () => {
   const isValid = await isSessionValid();

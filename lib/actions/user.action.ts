@@ -5,9 +5,7 @@ import { connectToDatabase } from "../mongodb";
 import { SignInUserParams, SignUpUserParams } from "./shared.types";
 import User from "@/database/user.model";
 import bcrypt from "bcryptjs";
-import { SignJWT, jwtVerify } from "jose";
-
-const key = new TextEncoder().encode(process.env.AUTH_SECRET);
+import { encrypt } from "../utils";
 
 export async function signUpUser(params: SignUpUserParams) {
   try {
@@ -28,39 +26,6 @@ export async function signUpUser(params: SignUpUserParams) {
   } catch (error) {
     console.log(error);
     throw error;
-  }
-}
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-async function encrypt(payload: any) {
-  return await new SignJWT(payload)
-    .setProtectedHeader({ alg: "HS256" })
-    .setIssuedAt()
-    .setExpirationTime("2d")
-    .sign(key);
-}
-
-export async function isSessionValid() {
-  const cookieStore = await cookies();
-  const session = cookieStore.get("session")?.value;
-  if (!session) return false;
-
-  try {
-    const { payload } = await jwtVerify(session, key, {
-      algorithms: ["HS256"],
-    });
-
-    // Check if the token has expired
-    const { exp } = payload;
-    if (exp && Date.now() >= exp * 1000) {
-      console.log("Token has expired");
-      return false;
-    }
-
-    return true;
-  } catch {
-    console.log("Invalid token");
-    return false;
   }
 }
 

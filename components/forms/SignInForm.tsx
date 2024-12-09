@@ -1,6 +1,6 @@
 "use client";
 
-import { signInUser, signUpUser } from "@/lib/actions/user.action";
+import { signInUser } from "@/lib/actions/user.action";
 import Form from "next/form";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
