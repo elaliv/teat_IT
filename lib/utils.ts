@@ -59,3 +59,35 @@ export async function isSessionValid() {
   }
 }
 
+/**
+ * Decodes a base64 string and converts it to a proper URL format
+ * @param base64String - The base64 string to decode
+ * @returns A URL that can be used with Next.js Image component
+ */
+export function decodeImageURI(base64String: string | undefined | null): string {
+  if (!base64String) {
+    return '/assets/images/default-food-photo.png'; // Replace with your default image path
+  }
+
+  try {
+    // If it's already a URL, return it as is
+    if (base64String.startsWith('http://') || base64String.startsWith('https://')) {
+      return base64String;
+    }
+
+    // If it's already a properly formatted data URL, return it
+    if (base64String.startsWith('data:image/')) {
+      return base64String;
+    }
+
+    // Remove any 'base64,' prefix if it exists
+    const cleanBase64 = base64String.replace(/^base64,/, '');
+
+    // Create a proper data URL
+    return `data:image/jpeg;base64,${cleanBase64}`;
+  } catch (error) {
+    console.error('Error decoding image URI:', error);
+    return '/assets/images/default-placeholder.png'; // Replace with your default image path
+  }
+}
+

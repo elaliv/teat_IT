@@ -18,3 +18,7 @@ export interface AddRecipeParams {
   rating?: number;
   numberOfRatings?: number;
 }
+
+export interface GetAuthorNameByIdParams {
+  id: string;
+}

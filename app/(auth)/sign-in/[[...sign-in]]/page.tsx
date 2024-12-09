@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import SignInForm from "@/components/forms/SignInForm";
-import Card from "@/components/ui/Card";
+import Card from "@/components/cards/Card";
 import Link from "next/link";
 import { isSessionValid } from "@/lib/utils";
 
