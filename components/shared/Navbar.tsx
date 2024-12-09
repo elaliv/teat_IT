@@ -7,7 +7,7 @@ const Navbar = async () => {
   const isValid = await isSessionValid();
 
   return (
-    <nav className="relative bg-primary-dark-blue w-full rounded-bl-[25px] rounded-br-[25px] text-white shadow-nav-shadow z-10">
+    <nav className="relative bg-primary-dark-blue w-full rounded-bl-[25px] rounded-br-[25px] text-white shadow-nav z-10">
       <div className="flex justify-between px-12 py-4">
         <div className="flex gap-20">
           <Image

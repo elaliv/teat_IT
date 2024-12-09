@@ -1,9 +1,9 @@
 import SignUpForm from "@/components/forms/SignUpForm";
-import Card from "@/components/ui/Card";
+import Card from "@/components/cards/Card";
 
 const page = () => {
-    return (
-      <div className="flex justify-center items-center h-[90vh]">
+  return (
+    <div className="flex justify-center items-center h-[90vh]">
       <Card>
         <div className="flex flex-col items-center gap-10">
           <h1 className="font-bold text-4xl max-w-[70%] text-center">
@@ -13,7 +13,7 @@ const page = () => {
         </div>
       </Card>
     </div>
-    );
-}
+  );
+};
 
 export default page;

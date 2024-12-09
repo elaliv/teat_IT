@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import Card from "@/components/ui/Card";
+import Card from "@/components/cards/Card";
 import AddRecipeForm from "@/components/forms/AddRecipeForm";
 import { isSessionValid } from "@/lib/utils";
 

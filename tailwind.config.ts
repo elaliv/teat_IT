@@ -14,9 +14,12 @@ export default {
           "dark-blue": "#00236D",
           green: "#009C41",
         },
+        "davys-grey": "#3F3F3F",
+        "white-smoke": "#F5F5F5",
       },
       boxShadow: {
-        "nav-shadow": "0px 1px 14px 0px #021B2C",
+        nav: "0px 1px 14px 0px #021B2C",
+        select: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
       },
       backgroundImage: {
         food: "url('/assets/icons/food-background.svg')",

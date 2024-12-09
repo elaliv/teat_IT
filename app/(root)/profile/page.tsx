@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import Card from "@/components/ui/Card";
+import Card from "@/components/cards/Card";
 import { isSessionValid } from "@/lib/utils";
 import Image from "next/image";
 import { getUserDetailsByEmail } from "@/lib/actions/user.action";
